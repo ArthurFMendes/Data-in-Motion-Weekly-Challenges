@@ -1,0 +1,45 @@
+"""
+Create a function that replaces all the vowels in a string with a specified
+character
+"""
+def replace_vowels(input_str, char):
+    vowels = 'aeiouAEIOU'
+    for vowel in vowels:
+        input_str = input_str.replace(vowel, char)
+    return input_str
+
+"""
+Given three lists of integers: lst1, lst2, lst3, return the sum of integers
+which are common in all three lists.
+"""
+def sum_common_elements(lst1, lst2, lst3):
+    common_elements = set(lst1) & set(lst2) & set(lst3)
+    return sum(common_elements)
+
+"""
+"Loves me, loves me not" is a traditional game in which a person plucks off
+all the petals of a flower one by one, saying the phrase "Loves me" and
+"Loves me not" when determining whether the one that they love, loves them back.
+Given a number of petals, return a string which repeats the phrases
+"Loves me" and "Loves me not" for every alternating petal, and return the last
+phrase in all caps. Remember to put a comma and space between phrases.
+"""
+def loves_me(num_petals):
+    # Create an empty list to store the alternating phrases
+    result = []
+
+    # Loop through each petal
+    for i in range(num_petals):
+        # Check if the current petal is even
+        if i % 2 == 0:
+            # If even, append "Loves me" to the list
+            result.append("Loves me")
+        else:
+            # If odd, append "Loves me not" to the list
+            result.append("Loves me not")
+
+    # Capitalize the last phrase in the list
+    result[-1] = result[-1].upper()
+
+    # Join all the phrases in the list with a comma and space
+    return ", ".join(result)
